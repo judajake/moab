@@ -598,6 +598,7 @@ ErrorCode WriteTemplate::write_matsets(MeshInfo & /* mesh_info (commented out to
       if (MB_SUCCESS != result) return result;
       
         // get the vertex ids
+      connect.resize(num_connecth);
       result = mbImpl->tag_get_data(mGlobalIdTag, connecth, num_connecth, &connect[0]);
       if (MB_SUCCESS != result) return result;
       

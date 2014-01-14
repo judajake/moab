@@ -692,7 +692,7 @@ ErrorCode WriteSLAC::write_matsets(MeshInfo &mesh_info,
     GET_VAR("hexahedron_interior", hex_conn, dims);
     if (-1 == hex_conn) return MB_FAILURE;
   }
-  connect.reserve(13);
+  connect.resize(13);
   Range::iterator rit;
 
   int elem_num = 0;
@@ -772,7 +772,7 @@ ErrorCode WriteSLAC::write_matsets(MeshInfo &mesh_info,
     GET_VAR("hexahedron_exterior", hex_conn, dims);
     if (-1 == hex_conn) return MB_FAILURE;
 
-    connect.reserve(15);
+    connect.resize(15);
     elem_num = 0;
 
       // write the elements
@@ -823,7 +823,7 @@ ErrorCode WriteSLAC::write_matsets(MeshInfo &mesh_info,
     GET_VAR("tetrahedron_exterior", tet_conn, dims);
     if (-1 == tet_conn) return MB_FAILURE;
 
-    connect.reserve(9);
+    connect.resize(9);
     elem_num = 0;
 
       // write the elements
