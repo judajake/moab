@@ -382,7 +382,7 @@ ErrorCode ReorderTool::get_new_handles( Tag tag,
 {
     // get new handles for tagged entities
   newhandles.resize(old_handles.size());
-  ErrorCode rval = mMB->tag_get_data( tag, old_handles, &newhandles[0] );
+  ErrorCode rval = mMB->tag_get_data( tag, old_handles, (newhandles.empty())?NULL:&newhandles[0] );
   CHKERR;
 
     // remove entities that were not reordered
