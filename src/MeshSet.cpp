@@ -405,6 +405,12 @@ typedef std::pair<EntityHandle,EntityHandle> MeshSetRange;
 class MeshSetRComp {
   public: bool operator()( const MeshSetRange& r, EntityHandle h )
     { return r.second < h; }
+  public: bool operator()( EntityHandle r, const MeshSetRange& h )
+    { return r < h.second; }
+  public: bool operator()(EntityHandle r, EntityHandle h )
+    { return r < h; }
+  public: bool operator()( const MeshSetRange& r, const MeshSetRange& h )
+    { return r.second < h.second; }
 };
 
 template <typename pair_iter_t> inline ErrorCode

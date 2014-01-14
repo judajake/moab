@@ -17,6 +17,10 @@
 #pragma warning(disable:4786)
 #endif
 
+#ifdef _MSC_VER  /* windows */
+#  define _USE_MATH_DEFINES //For M_PI
+#endif
+
 #include "ReadNCDF.hpp"
 #include "netcdf.h"
 
