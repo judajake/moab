@@ -1649,12 +1649,12 @@ ErrorCode ReadNCDF::update(const char *exodus_file_name,
   // read in the deformations.
   std::vector< std::vector<double> > deformed_arrays(3) ;
   std::vector< std::vector<double> >  orig_coords(3) ;
-  deformed_arrays[0].reserve(numberNodes_loading);
-  deformed_arrays[1].reserve(numberNodes_loading);
-  deformed_arrays[2].reserve(numberNodes_loading);
-  orig_coords[0].reserve(numberNodes_loading);
-  orig_coords[1].reserve(numberNodes_loading);
-  orig_coords[2].reserve(numberNodes_loading);
+  deformed_arrays[0].resize(numberNodes_loading);
+  deformed_arrays[1].resize(numberNodes_loading);
+  deformed_arrays[2].resize(numberNodes_loading);
+  orig_coords[0].resize(numberNodes_loading);
+  orig_coords[1].resize(numberNodes_loading);
+  orig_coords[2].resize(numberNodes_loading);
   size_t start[2] = {static_cast<size_t>(time_step-1),0}, count[2] = {1, static_cast<size_t>(numberNodes_loading)};
   std::vector<int> dims;
   int coordx = -1, coordy = -1, coordz = -1;
