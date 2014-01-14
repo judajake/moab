@@ -42,7 +42,10 @@ ErrorCode AEntityFactory::get_vertices( EntityHandle h,
   if (MBPOLYHEDRON == TYPE_FROM_HANDLE(h)) {
     storage.clear();
     result = thisMB->get_adjacencies( &h, 1, 0, false, storage );
-    vect_out = &storage[0];
+    if (storage.empty())
+      vect_out = NULL;
+    else
+      vect_out = &storage[0];
     count_out = storage.size();
   }
   else {
@@ -539,7 +542,10 @@ ErrorCode AEntityFactory::get_adjacencies(EntityHandle entity,
   }
   
   num_entities = vec_ptr->size();
-  adjacent_entities = &((*vec_ptr)[0]);
+  if(num_entities == 0)
+     adjacent_entities = NULL;
+  else
+     adjacent_entities = &((*vec_ptr)[0]);
   return MB_SUCCESS;
 }
 
