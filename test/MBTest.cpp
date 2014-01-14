@@ -2422,7 +2422,7 @@ ErrorCode mb_mesh_set_flag_test()
   // swap the order with some entities to that the handles aren't ordered
   rval = mb->clear_meshset( &set, 1 );
   CHKERR(rval);
-  entities.clear();
+  entities.resize(2);
   entities[0] = verts[1];
   entities[1] = verts[0];
   rval = mb->add_entities( set, &entities[0], 2);
