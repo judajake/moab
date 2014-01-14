@@ -341,7 +341,7 @@ ReorderTool::get_reordered_handles( Tag tag,
                                     std::vector<EntityHandle>& new_handles )
 {
   new_handles.resize( old_handles.size() );
-  ErrorCode rval = mMB->tag_get_data( tag, old_handles, &new_handles[0] );
+  ErrorCode rval = mMB->tag_get_data( tag, old_handles, (new_handles.empty())?NULL:&new_handles[0] );
   CHKERR;
   
   Range::const_iterator it1 = old_handles.begin();
@@ -358,7 +358,7 @@ ErrorCode ReorderTool::get_reordered_handles( Tag tag,
                         std::vector<EntityHandle>& new_handles )
 {
   new_handles.resize( old_handles.size() );
-  return get_reordered_handles( tag, &old_handles[0], &new_handles[0], old_handles.size() );
+  return get_reordered_handles( tag, (old_handles.empty())?NULL:&old_handles[0], (new_handles.empty())?NULL:&new_handles[0], old_handles.size() );
 }
 
 ErrorCode ReorderTool::get_reordered_handles( Tag tag, 
