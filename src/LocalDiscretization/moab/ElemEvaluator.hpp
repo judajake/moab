@@ -359,10 +359,11 @@ namespace moab {
       
       if (entHandle) {
         if (0 == tagDim) {
-          rval = mbImpl->tag_get_data(tagHandle, vertHandles, numVerts, &tagSpace[0]);
+          rval = mbImpl->tag_get_data(tagHandle, vertHandles, numVerts, (numVerts == 0)?NULL:&tagSpace[0]);
           if (MB_SUCCESS != rval) return rval;
         }
         else if (tagDim == entDim) {
+          tagSpace.resize(1);
           rval = mbImpl->tag_get_data(tagHandle, &entHandle, 1, &tagSpace[0]);
           if (MB_SUCCESS != rval) return rval;
         }
@@ -404,10 +405,12 @@ namespace moab {
       
       if (entHandle) {
         if (0 == tagDim) {
+          tagSpace.resize(numVerts);
           rval = mbImpl->tag_get_data(tagHandle, vertHandles, numVerts, &tagSpace[0]);
           if (MB_SUCCESS != rval) return rval;
         }
         else if (tagDim == entDim) {
+          tagSpace.resize(1);
           rval = mbImpl->tag_get_data(tagHandle, &entHandle, 1, &tagSpace[0]);
           if (MB_SUCCESS != rval) return rval;
         }
