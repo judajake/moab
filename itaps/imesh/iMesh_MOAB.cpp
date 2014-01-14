@@ -685,7 +685,11 @@ extern "C" {
             ERROR(result, "iMesh_getEntArrAdj: trouble getting adjacency list.");
           }
         }
-        connect = &adj_ents[0];
+        if(adj_ents.empty()) {
+          connect = NULL;
+        }else{
+          connect = &adj_ents[0];
+        }
         num_connect = adj_ents.size();
       }
       else {
