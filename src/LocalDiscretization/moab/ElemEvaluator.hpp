@@ -359,6 +359,7 @@ namespace moab {
       
       if (entHandle) {
         if (0 == tagDim) {
+          tagSpace.resize(numVerts);
           rval = mbImpl->tag_get_data(tagHandle, vertHandles, numVerts, (numVerts == 0)?NULL:&tagSpace[0]);
           if (MB_SUCCESS != rval) return rval;
         }
