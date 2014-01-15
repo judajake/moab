@@ -18,6 +18,7 @@
 #define MOAB_DUAL_TOOL_HPP
 
 #include "moab/Forward.hpp"
+#include "moab/Compiler.hpp"
 
 namespace moab {
 
@@ -28,7 +29,7 @@ namespace moab {
  *           though some functions may not make sense for tet duals)
  *          
  */ 
-class DualTool
+class MOAB_EXPORT DualTool
 {
 public:
     //! tag name for dual surfaces

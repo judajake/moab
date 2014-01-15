@@ -14,7 +14,7 @@
 namespace moab 
 {
     
-class CpuTimer {
+class MOAB_EXPORT CpuTimer {
 private:
   double tAtBirth, tAtLast;
   double mAtBirth, mAtLast;

@@ -168,6 +168,7 @@
 #include <iosfwd>
 #include <algorithm>
 #include "moab/Types.hpp"
+#include "moab/Compiler.hpp"
 
 namespace moab {
 
@@ -184,7 +185,7 @@ struct range_base_iter
 
 
 //! the class Range
-class Range
+class MOAB_EXPORT Range
 {
 public:
 
@@ -735,7 +736,7 @@ operator-(  const Range::const_iterator& it1, const Range::const_iterator& it2 )
  *  e.g. std::copy(list.begin(), list.end(), range_inserter(my_range);
  * Also, see comments/instructions at the top of this class declaration
  */
-class range_inserter 
+class MOAB_EXPORT range_inserter 
 {
   
 protected:

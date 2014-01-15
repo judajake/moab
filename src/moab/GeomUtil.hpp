@@ -55,7 +55,7 @@ namespace GeomUtil {
  *                 Note:  seg_start must be less than seg_end
  *\return true if line semgent intersects box, false otherwise.
  */
-bool segment_box_intersect( CartVect box_min,
+bool MOAB_EXPORT segment_box_intersect( CartVect box_min,
                             CartVect box_max,
                             const CartVect& seg_pt,
                             const CartVect& seg_unit_dir,
@@ -73,7 +73,7 @@ bool segment_box_intersect( CartVect box_min,
  *                  intersect test.
  *\return true if intersection, false otherwise.
  */
-bool ray_tri_intersect( const CartVect vertices[3],
+bool MOAB_EXPORT ray_tri_intersect( const CartVect vertices[3],
                         const CartVect& ray_point,
                         const CartVect& ray_unit_direction,
                         double tolerance,
@@ -104,7 +104,7 @@ bool ray_tri_intersect( const CartVect vertices[3],
  *\return true if intersection, false otherwise.
  */
 enum intersection_type {NONE, INTERIOR, NODE0, NODE1, NODE2, EDGE0, EDGE1, EDGE2};
-bool plucker_ray_tri_intersect( const CartVect vertices[3],
+bool MOAB_EXPORT plucker_ray_tri_intersect( const CartVect vertices[3],
                                 const CartVect& ray_point,
                                 const CartVect& ray_unit_direction,
                                 double tolerance, /* unused */
@@ -131,7 +131,7 @@ bool plucker_ray_tri_intersect( const CartVect vertices[3],
     //!                 the ray exited the leaf.  If return value is false,
     //!                 then this value is undefined.
     //!\return true if ray intersects leaf, false otherwise.
-bool ray_box_intersect( const CartVect& box_min,
+bool MOAB_EXPORT ray_box_intersect( const CartVect& box_min,
                         const CartVect& box_max,
                         const CartVect& ray_pt,
                         const CartVect& ray_dir,
@@ -160,7 +160,7 @@ bool ray_box_intersect( const CartVect& box_min,
  *                    +X, +Y, and +Z sides respectively.
  *\return true if overlap, false otherwise.
  */
-bool box_plane_overlap( const CartVect& plane_normal, 
+bool MOAB_EXPORT box_plane_overlap( const CartVect& plane_normal,
                         double            plane_coeff,
                         CartVect        box_min_corner, 
                         CartVect        box_max_corner );
@@ -186,7 +186,7 @@ bool box_plane_overlap( const CartVect& plane_normal,
  *                    test.
  *\return true if overlap, false otherwise.
  */
-bool box_tri_overlap( const CartVect  triangle_corners[3],
+bool MOAB_EXPORT box_tri_overlap( const CartVect  triangle_corners[3],
                       const CartVect& box_min_corner,
                       const CartVect& box_max_corner,
                       double            tolerance );
@@ -200,11 +200,11 @@ bool box_tri_overlap( const CartVect  triangle_corners[3],
  *                    box_center to the boundary of the box.
  *\return true if overlap, false otherwise.
  */
-bool box_tri_overlap( const CartVect  triangle_corners[3],
+bool MOAB_EXPORT box_tri_overlap( const CartVect  triangle_corners[3],
                       const CartVect& box_center,
                       const CartVect& box_half_dims );
 
-bool box_point_overlap( const CartVect& box_min_corner,
+bool MOAB_EXPORT box_point_overlap( const CartVect& box_min_corner,
                         const CartVect& box_max_corner,
                         const CartVect& point,
                         double tolerance );
@@ -220,7 +220,7 @@ bool box_point_overlap( const CartVect& box_min_corner,
  *\param box_half_dims Half of the width of the box in each axial
  *                     direction.
  */
-bool box_elem_overlap( const CartVect *elem_corners,
+bool MOAB_EXPORT box_elem_overlap( const CartVect *elem_corners,
                        EntityType elem_type,
                        const CartVect& box_center,
                        const CartVect& box_half_dims ); 
@@ -236,7 +236,7 @@ bool box_elem_overlap( const CartVect *elem_corners,
  *\param box_half_dims Half of the width of the box in each axial
  *                     direction.
  */
-bool box_linear_elem_overlap( const CartVect *elem_corners,
+bool MOAB_EXPORT box_linear_elem_overlap( const CartVect *elem_corners,
                               EntityType elem_type,
                               const CartVect& box_center,
                               const CartVect& box_half_dims ); 
@@ -253,11 +253,11 @@ bool box_linear_elem_overlap( const CartVect *elem_corners,
  *\param box_half_dims Half of the width of the box in each axial
  *                     direction.
  */
-bool box_linear_elem_overlap( const CartVect *elem_corners,
+bool MOAB_EXPORT box_linear_elem_overlap( const CartVect *elem_corners,
                               EntityType elem_type,
                               const CartVect& box_half_dims ); 
 
-void closest_location_on_box( const CartVect& box_min_corner,
+void MOAB_EXPORT closest_location_on_box( const CartVect& box_min_corner,
                               const CartVect& box_max_corner,
                               const CartVect& point,
                               CartVect& closest );
@@ -269,7 +269,7 @@ void closest_location_on_box( const CartVect& box_min_corner,
  *\param vertices  Array of three corner vertex coordinates.
  *\param closest_out Result position 
  */
-void closest_location_on_tri( const CartVect& location,
+void MOAB_EXPORT closest_location_on_tri( const CartVect& location,
                               const CartVect* vertices,
                               CartVect& closest_out );
 
@@ -281,7 +281,7 @@ void closest_location_on_tri( const CartVect& location,
  *\param num_vertices Length of 'vertices' array.
  *\param closest_out Result position 
  */
-void closest_location_on_polygon( const CartVect& location,
+void MOAB_EXPORT closest_location_on_polygon( const CartVect& location,
                                   const CartVect* vertices,
                                   int num_vertices,
                                   CartVect& closest_out );
@@ -298,7 +298,7 @@ void closest_location_on_polygon( const CartVect& location,
  *                     3-5 : edge beginning at closest_topo - 3
  *                       6 : triangle interior
  */
-void closest_location_on_tri( const CartVect& location,
+void MOAB_EXPORT closest_location_on_tri( const CartVect& location,
                               const CartVect* vertices,
                               double tolerance,
                               CartVect& closest_out,
@@ -306,13 +306,13 @@ void closest_location_on_tri( const CartVect& location,
 
 // Finds whether or not a box defined by the center and the half
 // width intersects a trilinear hex defined by its eight vertices.
-bool box_hex_overlap( const CartVect hexv[8],
+bool MOAB_EXPORT box_hex_overlap( const CartVect hexv[8],
                       const CartVect& box_center,
                       const CartVect& box_dims);
 
 // Finds whether or not a box defined by the center and the half
 // width intersects a linear tetrahedron defined by its four vertices.
-bool box_tet_overlap( const CartVect tet_corners[4],
+bool MOAB_EXPORT box_tet_overlap( const CartVect tet_corners[4],
                       const CartVect& box_center,
                       const CartVect& box_dims);
 
@@ -321,7 +321,7 @@ bool box_tet_overlap( const CartVect tet_corners[4],
 // they are overlapping if they are overlapping in all directions
 // for example in x direction:
 //   box_max2[0] + tolerance < box_min1[0] -- false
-bool boxes_overlap( const CartVect & box_min1, const CartVect & box_max1,
+bool MOAB_EXPORT boxes_overlap( const CartVect & box_min1, const CartVect & box_max1,
     const CartVect & box_min2, const CartVect & box_max2, double tolerance);
 
 // see if boxes formed by 2 lists of "CartVect"s overlap
@@ -335,11 +335,11 @@ bool bounding_boxes_overlap (const CartVect * list1, int num1, const CartVect * 
 // and checks if each are between +/-1.  If anyone is outside the range
 // the function returns false, otherwise it returns true.
 //
-bool point_in_trilinear_hex(const CartVect *hex, 
+bool MOAB_EXPORT point_in_trilinear_hex(const CartVect *hex,
                             const CartVect& xyz,
                             double etol);
 
-bool nat_coords_trilinear_hex( const CartVect* corner_coords,
+bool MOAB_EXPORT nat_coords_trilinear_hex( const CartVect* corner_coords,
                                const CartVect& x,
                                CartVect& xi,
                                double tol );

@@ -24,7 +24,7 @@ namespace moab {
 
     class ElemEvaluator;
     
-    class BVHTree : public Tree {
+    class MOAB_EXPORT BVHTree : public Tree {
   public:
       BVHTree(Interface *impl);
 

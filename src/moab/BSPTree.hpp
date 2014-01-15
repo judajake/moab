@@ -38,7 +38,7 @@ class BSPTreePoly;
 /** \class BSPTree
  * \brief BSP tree, for sorting and searching entities spatially
  */
-class BSPTree
+class MOAB_EXPORT BSPTree
 {
 private:
   Interface* mbInstance;
@@ -231,7 +231,7 @@ public:
 /** \class BSPTreeIter
  * \brief Iterate over leaves of a BSPTree
  */
-class BSPTreeIter
+class MOAB_EXPORT BSPTreeIter
 {
 public:
   

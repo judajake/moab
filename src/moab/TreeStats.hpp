@@ -23,7 +23,7 @@
 
 namespace moab 
 {
-    class TreeStats{
+    class MOAB_EXPORT TreeStats{
   public:
         //! constructor
       TreeStats() {reset();}

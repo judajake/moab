@@ -5,6 +5,7 @@
 #include <map>
 #include <string>
 #include <iostream>
+#include "moab/Compiler.hpp"
 
 
 class ProgOpt;
@@ -37,7 +38,7 @@ class ProgOpt;
  * 
  * See the file dagmc_preproc.cpp in the dagmc directory for a real-world example.
  */
-class ProgOptions{
+class MOAB_EXPORT ProgOptions{
 
 public:
 

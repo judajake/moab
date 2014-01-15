@@ -9,7 +9,7 @@
 namespace moab 
 {
     
-class SpectralHex 
+class MOAB_EXPORT SpectralHex 
 {
 public:
     /** \brief Forward-evaluation of field at parametric coordinates */

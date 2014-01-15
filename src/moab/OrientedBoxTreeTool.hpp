@@ -37,7 +37,7 @@ class CartVect;
 /** \class OrientedBoxTreeTool
  * \brief Class for constructing and querying Hierarchical Oriented Bounding Box trees
  */
-class OrientedBoxTreeTool
+class MOAB_EXPORT OrientedBoxTreeTool
 {
   public:
   

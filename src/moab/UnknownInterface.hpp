@@ -24,7 +24,7 @@ namespace moab {
 // note: this MBuuid is compliant with the windows GUID.  
 // It is possible to do a memcpy() to copy the data from a MBuuid to a GUID
 // if we want to support dll registration
-struct MBuuid
+struct MOAB_EXPORT MBuuid
 {
    //! default constructor that initializes to zero
    MBuuid()
@@ -86,7 +86,7 @@ static const MBuuid IDD_MBUnknown = MBuuid( 0xf4f6605e, 0x2a7e, 0x4760,
 
 
 //! base class for all interface classes
-class UnknownInterface
+class MOAB_EXPORT UnknownInterface
 {
 public:
    virtual int QueryInterface

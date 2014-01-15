@@ -18,6 +18,7 @@
 #define MOAB_READER_IFACE_HPP
 
 #include "moab/Types.hpp"
+#include "moab/Compiler.hpp"
 
 #include <vector>
 
@@ -31,7 +32,7 @@ class FileOptions;
  *\date 2004-4-23
  *\author Jason Kraftcheck
  */
-class ReaderIface
+class MOAB_EXPORT ReaderIface
 {
   public:
   

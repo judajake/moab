@@ -37,6 +37,7 @@
 #include <cassert>
 
 #include "moab/EntityType.hpp"
+#include "moab/Compiler.hpp"
 
 namespace moab {
 
@@ -49,7 +50,7 @@ enum {
 
 typedef std::pair<EntityType, EntityType> DimensionPair;
 
-class CN
+class MOAB_EXPORT CN
 {
 private:
 

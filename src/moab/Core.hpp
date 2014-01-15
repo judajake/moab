@@ -51,7 +51,7 @@ class SetIterator;
  * on an object of type Core (use Interface instead), unless you really have to access
  * non-API functionality.
  */
-class Core : public Interface 
+class MOAB_EXPORT Core : public Interface 
 {
 
 public:

@@ -18,7 +18,7 @@ namespace moab {
  * b) fine elements: as linear elements made from fine vertices, with tags on vertices
  * 
  */
-class SpectralMeshTool
+class MOAB_EXPORT SpectralMeshTool
 {
 public:
 

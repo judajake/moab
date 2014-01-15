@@ -10,7 +10,7 @@ class Core;
 /** \class Meshset iterator
  * \brief A class to iterator over MOAB Meshsets
  */
-class SetIterator
+class MOAB_EXPORT SetIterator
 {
 public:
 
@@ -79,7 +79,7 @@ protected:
 /** \class Set-type set iterator
  * \brief A class to iterator over MOAB set-type meshsets
  */
-class RangeSetIterator : public SetIterator
+class MOAB_EXPORT RangeSetIterator : public SetIterator
 {
 public:
   friend class Core;
@@ -133,7 +133,7 @@ private:
 /** \class List-type set iterator
  * \brief A class to iterator over MOAB list-type meshsets
  */
-class VectorSetIterator : public SetIterator
+class MOAB_EXPORT VectorSetIterator : public SetIterator
 {
 public:
   friend class Core;

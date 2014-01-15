@@ -25,7 +25,7 @@
 namespace moab {
 
 //! Interface implemented in MOAB which provides memory for mesh reading utilities
-class WriteUtilIface
+class MOAB_EXPORT WriteUtilIface
 {
 public:
 

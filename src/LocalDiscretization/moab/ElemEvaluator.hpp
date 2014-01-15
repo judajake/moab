@@ -27,7 +27,7 @@ namespace moab {
                                         const double *posn, const double *verts, const int nverts, const int ndim,
                                         const double tol, double *work, double *params, bool *is_inside);
         
-    class EvalSet
+    class MOAB_EXPORT EvalSet
     {
   public:
         /** \brief Forward-evaluation of field at parametric coordinates */

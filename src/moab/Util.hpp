@@ -17,13 +17,14 @@
 #define MB_UTIL_HPP
 
 #include "moab/Forward.hpp"
+#include "moab/Compiler.hpp"
 
 namespace moab {
 
 /** \struct Coord
  * \brief Structure for storing coordinate data
  */
-struct  Coord
+struct MOAB_EXPORT Coord
 {
   double x;
   double y;
@@ -34,7 +35,7 @@ struct  Coord
  *
  * \brief Utility functions for normal and centroid for entities
  */
-class Util
+class MOAB_EXPORT Util
 {
 public:
    

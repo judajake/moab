@@ -26,7 +26,7 @@ namespace moab {
 class Range;
 
 //! Interface implemented in MOAB which provides memory for mesh reading utilities
-class ReadUtilIface
+class MOAB_EXPORT ReadUtilIface
 {
 public:
 

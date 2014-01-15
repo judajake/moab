@@ -19,7 +19,7 @@ namespace moab {
     class Interface;
     class ElemEvaluator;
 
-    class SpatialLocator
+    class MOAB_EXPORT SpatialLocator
     {
   public:
         /* constructor */

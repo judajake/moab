@@ -123,7 +123,7 @@ namespace Matrix{
 	} 
 } //namespace Matrix
 
-class Matrix3  {
+class MOAB_EXPORT Matrix3  {
   //TODO: std::array when we can use C++11
   double d[9];
 

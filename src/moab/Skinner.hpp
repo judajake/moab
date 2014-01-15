@@ -34,7 +34,7 @@ class ScdBox;
  * the skin, e.g. using geometric topology sets, vertex-entity adjacencies, or directly from
  * (n-1)-dimensional entities.
  */
-class Skinner 
+class MOAB_EXPORT Skinner 
 {
 
   enum direction{FORWARD=1, REVERSE=-1};

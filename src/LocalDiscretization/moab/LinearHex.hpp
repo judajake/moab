@@ -7,7 +7,7 @@
 namespace moab 
 {
     
-class LinearHex 
+class MOAB_EXPORT LinearHex 
 {
 public:
     /** \brief Forward-evaluation of field at parametric coordinates */

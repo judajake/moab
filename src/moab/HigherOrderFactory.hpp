@@ -35,7 +35,7 @@ class Core;
  *  \brief   
  *          
  */ 
-class HigherOrderFactory
+class MOAB_EXPORT HigherOrderFactory
 {
 public:
 

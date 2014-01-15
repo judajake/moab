@@ -7,6 +7,7 @@
 #define moab_REORDER_TOOL_HPP
 
 #include "moab/Types.hpp"
+#include "moab/Compiler.hpp"
 #include <vector>
 
 namespace moab {
@@ -14,7 +15,7 @@ namespace moab {
 class Core;
 class Range;
 
-class ReorderTool 
+class MOAB_EXPORT ReorderTool 
 {
   public:
   

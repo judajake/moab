@@ -8,7 +8,7 @@ namespace moab {
 
 class AdaptiveKDTree;
     
-class MergeMesh 
+class MOAB_EXPORT MergeMesh 
 {
 public:
     /* \brief Constructor

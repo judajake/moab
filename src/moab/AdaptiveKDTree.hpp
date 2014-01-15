@@ -19,7 +19,7 @@ namespace moab {
     class Interface;
     class Range;
 
-    class AdaptiveKDTree : public Tree
+    class MOAB_EXPORT AdaptiveKDTree : public Tree
     {
   public:
 
@@ -314,7 +314,7 @@ namespace moab {
                     
 
 //! Iterate over leaves of an adapative kD-tree
-    class AdaptiveKDTreeIter
+    class MOAB_EXPORT AdaptiveKDTreeIter
     {
   public:
 

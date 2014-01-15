@@ -7,7 +7,7 @@
 namespace moab 
 {
     
-class LinearTet 
+class MOAB_EXPORT LinearTet 
 {
 public:
     /** \brief Forward-evaluation of field at parametric coordinates */

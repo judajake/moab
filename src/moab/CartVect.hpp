@@ -3,6 +3,7 @@
 
 #include <cmath>
 #include <iosfwd>
+#include "moab/Compiler.hpp"
 
 namespace moab {
 
@@ -10,7 +11,7 @@ namespace moab {
 /**
  * \brief Cartesian Vector
  */
-class CartVect
+class MOAB_EXPORT CartVect
 {
   private:
     double d[3];

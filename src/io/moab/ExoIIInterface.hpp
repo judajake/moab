@@ -42,7 +42,7 @@ enum ExoIIElementType
 };
 
 
-class ExoIIInterface
+class MOAB_EXPORT ExoIIInterface
 {
 public:
   enum {

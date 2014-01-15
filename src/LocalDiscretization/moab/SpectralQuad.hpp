@@ -9,7 +9,7 @@
 namespace moab 
 {
     
-class SpectralQuad
+class MOAB_EXPORT SpectralQuad
 {
 public:
     /** \brief Forward-evaluation of field at parametric coordinates */

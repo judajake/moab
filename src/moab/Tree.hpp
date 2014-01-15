@@ -23,7 +23,7 @@ namespace moab {
     class Range;
     class ElemEvaluator;
 
-    class Tree
+    class MOAB_EXPORT Tree
     {
   public:
         /** \brief Constructor (bare)

@@ -24,6 +24,7 @@
 #include <string>
 #include <vector>
 #include "moab/Types.hpp"
+#include "moab/Compiler.hpp"
 
 namespace moab {
 
@@ -33,7 +34,7 @@ namespace moab {
  * parse the options string passed to Core::load_file and
  * Core::write_file
  */
-class FileOptions {
+class MOAB_EXPORT FileOptions {
 public:
 
   /*\param options_string The concatenation of a list of 

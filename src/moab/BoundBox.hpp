@@ -8,7 +8,7 @@
 
 namespace moab {
 
-    class BoundBox {
+    class MOAB_EXPORT BoundBox {
   public:
       BoundBox() : bMin(DBL_MAX), bMax(-DBL_MAX) {}
       BoundBox(const CartVect &min, const CartVect &max) : 

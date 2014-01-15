@@ -51,7 +51,7 @@
 
 namespace moab {
 
-class Error
+class MOAB_EXPORT Error
 {
   //! string to hold the last error that occurred in MB
   std::string mLastError;

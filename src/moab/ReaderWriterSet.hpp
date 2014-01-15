@@ -34,7 +34,7 @@ class Error;
  *\date 2004-4-23
  *\author Jason Kraftcheck
  */
-class ReaderWriterSet
+class MOAB_EXPORT ReaderWriterSet
 {
 
   public:

@@ -86,7 +86,7 @@ static const MBuuid IDD_MBCore = MBuuid( 0x8956e0a, 0xc300, 0x4005,
 #if defined(XPCOM_MB)
 class NS_NO_VTABLE Interface : public nsISupports {
 #else
-class Interface : public UnknownInterface {
+class MOAB_EXPORT Interface : public UnknownInterface {
 #endif
 
 public:

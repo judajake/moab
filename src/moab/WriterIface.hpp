@@ -20,6 +20,7 @@
 #include <vector>
 #include <string>
 #include "moab/Types.hpp"
+#include "moab/Compiler.hpp"
 
 namespace moab {
 
@@ -31,7 +32,7 @@ class FileOptions;
  *\date 2004-4-23
  *\author Jason Kraftcheck
  */
-class WriterIface
+class MOAB_EXPORT WriterIface
 {
   public:
   

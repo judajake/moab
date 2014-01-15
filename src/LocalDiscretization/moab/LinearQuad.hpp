@@ -7,7 +7,7 @@
 namespace moab 
 {
     
-class LinearQuad 
+class MOAB_EXPORT LinearQuad 
 {
 public:
     /** \brief Forward-evaluation of field at parametric coordinates */

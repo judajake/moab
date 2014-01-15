@@ -20,7 +20,7 @@ class SmoothCurve;
 /*
  *  Facet Based engine class for mesh-based geometry
  */
-class FBEngine {
+class MOAB_EXPORT FBEngine {
 public:
   FBEngine(Interface *impl, GeomTopoTool* geomTopoTool = NULL,
       const bool smooth = false);

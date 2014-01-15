@@ -80,20 +80,45 @@
  */
 #if defined _MSC_VER || defined __CYGWIN__ || defined __MINGW32__ \
  || defined __MINGW64__ || defined _WIN32
-  #if !defined IS_BUILDING_MB || !defined MB_EXPORTS
-    #define MB_DLL_EXPORT __dllspec(dllexport)
-  #elif !defined MB_WIN_DLL
-    #define MB_DLL_EXPORT __dllspec(dllimport)
-  #else
-    #define MB_DLL_EXPORT
-  #endif
-  #define MB_DLL_HIDDEN
+#  ifdef MOAB_STATIC_DEFINE
+#    define MOAB_EXPORT
+#    define MOAB_NO_EXPORT
+#  else
+#    ifndef MOAB_EXPORT
+#      ifdef MOAB_EXPORTS
+/* We are building this library */
+#        define MOAB_EXPORT __declspec(dllexport)
+#      else
+/* We are using this library */
+#        define MOAB_EXPORT __declspec(dllimport)
+#      endif
+#    endif
+
+#    ifndef MOAB_NO_EXPORT
+#      define MOAB_NO_EXPORT
+#    endif
+#  endif
+
+#  ifndef MOAB_DEPRECATED
+#    define MOAB_DEPRECATED __declspec(deprecated)
+#    define MOAB_DEPRECATED_EXPORT MOAB_EXPORT __declspec(deprecated)
+#    define MOAB_DEPRECATED_NO_EXPORT MOAB_NO_EXPORT __declspec(deprecated)
+#  endif
+
+#  define DEFINE_NO_DEPRECATED 0
+#  if DEFINE_NO_DEPRECATED
+#    define MOAB_NO_DEPRECATED
+#  endif
 #elif defined __GNUC__ && __GNUC__ > 3
-  #define MB_DLL_EXPORT __attribute__((visibility("default")))
-  #define MB_DLL_HIDDEN __attribute__((visibility("hidden")))
+#  ifndef MOAB_EXPORT
+#     define MOAB_EXPORT __attribute__((visibility("default")))
+#  endif
+#  ifndef MOAB_NO_EXPORT
+#    define MOAB_NO_EXPORT __attribute__((visibility("hidden")))
+#  endif
 #else
-  #define MB_DLL_EXPORT
-  #define MB_DLL_HIDDEN
+#  define MOAB_EXPORT
+#  define MOAB_NO_EXPORT
 #endif
 
 /**\def MB_DEPRECATED

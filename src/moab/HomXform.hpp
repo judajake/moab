@@ -32,6 +32,7 @@
 
 #include <math.h>
 #include <ostream>
+#include "moab/Compiler.hpp"
 
 namespace moab {
 
@@ -40,7 +41,7 @@ class HomXform;
 /** \class HomCoord
  * \brief Homogeneous coordinate vector
  */
-class HomCoord 
+class MOAB_EXPORT HomCoord 
 {
 private:
 

@@ -7,7 +7,7 @@
 namespace moab 
 {
     
-class QuadraticHex
+class MOAB_EXPORT QuadraticHex
 {
 public:
     /** \brief Forward-evaluation of field at parametric coordinates */

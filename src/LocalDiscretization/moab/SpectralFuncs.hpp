@@ -102,18 +102,18 @@ typedef unsigned INTEGER uint;
    inner index is x index (0 ... m-1);
    outer index is Legendre polynomial number (0 ... n)
  */
-void legendre_matrix(const real *x, int m, real *P, int n);
+void MOAB_EXPORT legendre_matrix(const real *x, int m, real *P, int n);
 
 /* precondition: n >= 1
    inner index is Legendre polynomial number (0 ... n)
    outer index is x index (0 ... m-1);
  */
-void legendre_matrix_t(const real *x, int m, real *P, int n);
+void MOAB_EXPORT legendre_matrix_t(const real *x, int m, real *P, int n);
 
 /* precondition: n >= 1
    compute P_i(x) with i = 0 ... n
  */
-void legendre_row(real x, real *P, int n);
+void MOAB_EXPORT legendre_row(real x, real *P, int n);
 
 
 /*--------------------------------------------------------------------------
@@ -122,11 +122,11 @@ void legendre_row(real x, real *P, int n);
    call the _nodes function before calling the _weights function
   --------------------------------------------------------------------------*/
 
-void gauss_nodes(real *z, int n);   /* n nodes (order = 2n-1) */
-void lobatto_nodes(real *z, int n); /* n nodes (order = 2n-3) */
+void MOAB_EXPORT gauss_nodes(real *z, int n);   /* n nodes (order = 2n-1) */
+void MOAB_EXPORT lobatto_nodes(real *z, int n); /* n nodes (order = 2n-3) */
 
-void gauss_weights(const real *z, real *w, int n);
-void lobatto_weights(const real *z, real *w, int n);
+void MOAB_EXPORT gauss_weights(const real *z, real *w, int n);
+void MOAB_EXPORT lobatto_weights(const real *z, real *w, int n);
 
 /*--------------------------------------------------------------------------
    Lagrangian to Legendre Change-of-basis Matrix
@@ -143,13 +143,13 @@ void lobatto_weights(const real *z, real *w, int n);
              
    in column major format (inner index is i, the Legendre index)
  */
-void gauss_to_legendre(const real *z, const real *w, int n, real *J);
+void MOAB_EXPORT gauss_to_legendre(const real *z, const real *w, int n, real *J);
 
 /* precondition: n >= 2
    same as above, but
    in row major format (inner index is j, the Gauss index)
  */
-void gauss_to_legendre_t(const real *z, const real *w, int n, real *J);
+void MOAB_EXPORT gauss_to_legendre_t(const real *z, const real *w, int n, real *J);
 
 /* precondition: n >= 3
    given the Lobatto quadrature rule (z,w,n), compute the square matrix J
@@ -159,7 +159,7 @@ void gauss_to_legendre_t(const real *z, const real *w, int n, real *J);
 
    in column major format (inner index is i, the Legendre index)
  */
-void lobatto_to_legendre(const real *z, const real *w, int n, real *J);
+void MOAB_EXPORT lobatto_to_legendre(const real *z, const real *w, int n, real *J);
 
 /*--------------------------------------------------------------------------
    Lagrangian basis function evaluation
@@ -171,7 +171,7 @@ void lobatto_to_legendre(const real *z, const real *w, int n, real *J);
    inner index of output J is the basis function index (row-major format)
    provide work array with space for 4*n doubles
  */
-void lagrange_weights(const real *z, unsigned n,
+void MOAB_EXPORT lagrange_weights(const real *z, unsigned n,
                       const real *x, unsigned m,
                       real *J, real *work);
 
@@ -181,7 +181,7 @@ void lagrange_weights(const real *z, unsigned n,
    inner index of outputs J,D is the basis function index (row-major format)
    provide work array with space for 6*n doubles
  */
-void lagrange_weights_deriv(const real *z, unsigned n,
+void MOAB_EXPORT lagrange_weights_deriv(const real *z, unsigned n,
                             const real *x, unsigned m,
                             real *J, real *D, real *work);
 
@@ -219,13 +219,13 @@ typedef struct {
   real *w, *d, *u0, *v0, *u1, *v1, *u2, *v2; /* work data           */
 } lagrange_data;
 
-void lagrange_setup(lagrange_data *p, const real *z, unsigned n);
-void lagrange_free(lagrange_data *p);
+void MOAB_EXPORT lagrange_setup(lagrange_data *p, const real *z, unsigned n);
+void MOAB_EXPORT lagrange_free(lagrange_data *p);
 
-void lagrange_0(lagrange_data *p, real x) ;
-void lagrange_1(lagrange_data *p, real x) ;
-void lagrange_2(lagrange_data *p, real x) ;
-void lagrange_2u(lagrange_data *p) ;
+void MOAB_EXPORT lagrange_0(lagrange_data *p, real x) ;
+void MOAB_EXPORT lagrange_1(lagrange_data *p, real x) ;
+void MOAB_EXPORT lagrange_2(lagrange_data *p, real x) ;
+void MOAB_EXPORT lagrange_2u(lagrange_data *p) ;
 
 //======================================================
 // from tensor.h
@@ -243,26 +243,26 @@ void lagrange_2u(lagrange_data *p) ;
      v is mr x ms x mt in column-major format (inner index is r)
   --------------------------------------------------------------------------*/
 
-void tensor_c1(const real *R, unsigned mr, unsigned nr, 
+void MOAB_EXPORT tensor_c1(const real *R, unsigned mr, unsigned nr,
                const real *u, real *v);
-void tensor_r1(const real *R, unsigned mr, unsigned nr, 
+void MOAB_EXPORT tensor_r1(const real *R, unsigned mr, unsigned nr,
                const real *u, real *v);
 
 /* work holds mr*ns reals */
-void tensor_c2(const real *R, unsigned mr, unsigned nr,
+void MOAB_EXPORT tensor_c2(const real *R, unsigned mr, unsigned nr,
                const real *S, unsigned ms, unsigned ns,
                const real *u, real *v, real *work);
-void tensor_r2(const real *R, unsigned mr, unsigned nr,
+void MOAB_EXPORT tensor_r2(const real *R, unsigned mr, unsigned nr,
                const real *S, unsigned ms, unsigned ns,
                const real *u, real *v, real *work);
 
 /* work1 holds mr*ns*nt reals,
    work2 holds mr*ms*nt reals */
-void tensor_c3(const real *R, unsigned mr, unsigned nr,
+void MOAB_EXPORT tensor_c3(const real *R, unsigned mr, unsigned nr,
                const real *S, unsigned ms, unsigned ns,
                const real *T, unsigned mt, unsigned nt,
                const real *u, real *v, real *work1, real *work2);
-void tensor_r3(const real *R, unsigned mr, unsigned nr,
+void MOAB_EXPORT tensor_r3(const real *R, unsigned mr, unsigned nr,
                const real *S, unsigned ms, unsigned ns,
                const real *T, unsigned mt, unsigned nt,
                const real *u, real *v, real *work1, real *work2);
@@ -279,15 +279,15 @@ void tensor_r3(const real *R, unsigned mr, unsigned nr,
      v is a scalar
   --------------------------------------------------------------------------*/
 
-real tensor_i1(const real *Jr, unsigned nr, const real *u);
+real MOAB_EXPORT tensor_i1(const real *Jr, unsigned nr, const real *u);
 
 /* work holds ns reals */
-real tensor_i2(const real *Jr, unsigned nr,
+real MOAB_EXPORT tensor_i2(const real *Jr, unsigned nr,
                const real *Js, unsigned ns,
                const real *u, real *work);
 
 /* work holds ns*nt + nt reals */
-real tensor_i3(const real *Jr, unsigned nr,
+real MOAB_EXPORT tensor_i3(const real *Jr, unsigned nr,
                const real *Js, unsigned ns,
                const real *Jt, unsigned nt,
                const real *u, real *work);
@@ -308,16 +308,16 @@ real tensor_i3(const real *Jr, unsigned nr,
      v is a scalar, g is an array of 3 reals
   --------------------------------------------------------------------------*/
 
-real tensor_ig1(const real *Jr, const real *Dr, unsigned nr,
+real MOAB_EXPORT tensor_ig1(const real *Jr, const real *Dr, unsigned nr,
                 const real *u, real *g);
 
 /* work holds 2*ns reals */
-real tensor_ig2(const real *Jr, const real *Dr, unsigned nr,
+real MOAB_EXPORT tensor_ig2(const real *Jr, const real *Dr, unsigned nr,
                 const real *Js, const real *Ds, unsigned ns,
                 const real *u, real *g, real *work);
 
 /* work holds 2*ns*nt + 3*ns reals */
-real tensor_ig3(const real *Jr, const real *Dr, unsigned nr,
+real MOAB_EXPORT tensor_ig3(const real *Jr, const real *Dr, unsigned nr,
                 const real *Js, const real *Ds, unsigned ns,
                 const real *Jt, const real *Dt, unsigned nt,
                 const real *u, real *g, real *work);
@@ -356,23 +356,23 @@ typedef struct {
   real *od_work;
 } findpt_data_3;
 
-findpt_data_2 *findpt_setup_2(
+findpt_data_2 * MOAB_EXPORT findpt_setup_2(
           const real *const xw[2], const unsigned n[2], uint nel,
           uint max_hash_size, real bbox_tol);
-findpt_data_3 *findpt_setup_3(
+findpt_data_3 * MOAB_EXPORT findpt_setup_3(
           const real *const xw[3], const unsigned n[3], uint nel,
           uint max_hash_size, real bbox_tol);
 
-void findpt_free_2(findpt_data_2 *p);
-void findpt_free_3(findpt_data_3 *p);
+void MOAB_EXPORT findpt_free_2(findpt_data_2 *p);
+void MOAB_EXPORT findpt_free_3(findpt_data_3 *p);
 
-const real *findpt_allbnd_2(const findpt_data_2 *p);
-const real *findpt_allbnd_3(const findpt_data_3 *p);
+const real * MOAB_EXPORT findpt_allbnd_2(const findpt_data_2 *p);
+const real * MOAB_EXPORT findpt_allbnd_3(const findpt_data_3 *p);
 
 typedef int (*findpt_func)(void *, const real *, int, uint *, real *, real *);
-int findpt_2(findpt_data_2 *p, const real x[2], int guess,
+int MOAB_EXPORT findpt_2(findpt_data_2 *p, const real x[2], int guess,
              uint *el, real r[2], real *dist);
-int findpt_3(findpt_data_3 *p, const real x[3], int guess,
+int MOAB_EXPORT findpt_3(findpt_data_3 *p, const real x[3], int guess,
              uint *el, real r[3], real *dist);
 
 inline void findpt_weights_2(findpt_data_2 *p, const real r[2])
@@ -436,11 +436,11 @@ typedef struct {
 } opt_data_3;
 
 
-void opt_alloc_3(opt_data_3 *p, lagrange_data *ld);
-void opt_free_3(opt_data_3 *p);
-double opt_findpt_3(opt_data_3 *p, const real *const elx[3],
+void MOAB_EXPORT opt_alloc_3(opt_data_3 *p, lagrange_data *ld);
+void MOAB_EXPORT opt_free_3(opt_data_3 *p);
+double MOAB_EXPORT opt_findpt_3(opt_data_3 *p, const real *const elx[3],
                            const real xstar[3], real r[3], unsigned *constr);
-void opt_vol_set_intp_3(opt_data_3 *p, const real r[3]);
+void MOAB_EXPORT opt_vol_set_intp_3(opt_data_3 *p, const real r[3]);
 
 const unsigned opt_no_constraints_2 = 3+1;
 const unsigned opt_no_constraints_3 = 9+3+1;
@@ -472,9 +472,9 @@ typedef struct {
   real *work;
   real x[2], jac[4];
 } opt_data_2;
-void opt_alloc_2(opt_data_2 *p, lagrange_data *ld);
-void opt_free_2(opt_data_2 *p);
-double opt_findpt_2(opt_data_2 *p, const real *const elx[2],
+void MOAB_EXPORT opt_alloc_2(opt_data_2 *p, lagrange_data *ld);
+void MOAB_EXPORT opt_free_2(opt_data_2 *p);
+double MOAB_EXPORT opt_findpt_2(opt_data_2 *p, const real *const elx[2],
                            const real xstar[2], real r[2], unsigned *constr);
 
 #endif
