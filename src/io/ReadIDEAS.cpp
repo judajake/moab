@@ -46,8 +46,13 @@ ErrorCode ReadIDEAS::load_file(const char* fname,
     readMeshIface->report_error( "Reading subset of files not supported for IDEAS." );
     return MB_UNSUPPORTED_OPERATION;
   }
-
+#ifdef WIN32
+  file.open( fname, std::ios::binary ); //text files in VS 2005
+                                        //do not play nice with
+                                        //seekg and tellg
+#else
   file.open( fname );
+#endif
   if (!file.good()) {
     readMeshIface->report_error("Failed to open file: %s", fname);
     return MB_FILE_DOES_NOT_EXIST;
