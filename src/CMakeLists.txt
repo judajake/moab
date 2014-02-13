@@ -136,7 +136,6 @@ set( MOAB_INSTALL_HEADERS
         moab/HomXform.hpp
         moab/EigenDecomp.hpp
         moab/EntityType.hpp
-        ${CMAKE_CURRENT_BINARY_DIR}/moab/EntityHandle.hpp
         moab/FBEngine.hpp
         moab/FileOptions.hpp
         moab/FindPtFuncs.h
@@ -178,9 +177,11 @@ set( MOAB_INSTALL_HEADERS
         moab/WriterIface.hpp
         MBEntityType.h
         MBCN.h
-        ${CMAKE_CURRENT_BINARY_DIR}/MOAB_FCDefs.h
-        ${CMAKE_CURRENT_BINARY_DIR}/MBCN_protos.h
         MBTagConventions.hpp )
+set( MOAB_GENERATED_INSTALL_HEADERS
+     ${CMAKE_CURRENT_BINARY_DIR}/MOAB_FCDefs.h
+     ${CMAKE_CURRENT_BINARY_DIR}/MBCN_protos.h
+     ${CMAKE_CURRENT_BINARY_DIR}/moab/EntityHandle.hpp )
         
 if( CGM_FOUND )
   set( MOAB_CGM_LIBS ${CGM_LIBRARIES} )
@@ -192,7 +193,7 @@ if (MBZOLTAN_ENABLE AND ZOLTAN_FOUND)
   set( MOAB_INSTALL_HEADERS ${MOAB_INSTALL_HEADERS}
           ${CMAKE_SOURCE_DIR}/tools/mbzoltan/MBZoltan.hpp )
 endif()
-add_library( MOAB ${MOAB_LIB_SOURCES} ${MOAB_INSTALL_HEADERS}
+add_library( MOAB ${MOAB_LIB_SOURCES} ${MOAB_INSTALL_HEADERS} ${MOAB_GENERATED_INSTALL_HEADERS}
                   $<TARGET_OBJECTS:moabio> 
                   $<TARGET_OBJECTS:moab_loc_discr> 
                   ${MDHF_OBJ} )
@@ -206,3 +207,8 @@ install(TARGETS MOAB EXPORT MOABTargets
 set( MOAB_INSTALL_TARGETS ${MOAB_INSTALL_TARGETS} MOAB)
 include(AutoconfHeader)
 moab_install_headers(${MOAB_INSTALL_HEADERS})
+foreach (header ${MOAB_GENERATED_INSTALL_HEADERS})
+    STRING(REGEX REPLACE "^${CMAKE_CURRENT_BINARY_DIR}/" "" relative ${header})
+    string(REGEX MATCH "(.*)/" DIR ${relative})
+    install(FILES ${header} DESTINATION include/${DIR})
+endforeach()
