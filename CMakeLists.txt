@@ -61,13 +61,13 @@ set( MOAB_INSTALL_TARGETS )
 ################################################################################
 # Options that the user controls
 ################################################################################
-option ( BUILD_SHARED_LIBS   "Should shared or static libraries be created?"   ON  )
-option ( MOAB_USE_SZIP       "Should build with szip support?"                 OFF )
-option ( MOAB_USE_CGM        "Should build with CGM support?"                  OFF )
+option ( BUILD_SHARED_LIBS   "Should shared or static libraries be created?"   OFF  )
+option ( MOAB_USE_SZIP       "Should build with szip support?"                 ON )
+option ( MOAB_USE_CGM        "Should build with CGM support?"                  ON )
 option ( MOAB_USE_CGNS       "Should build with CGNS support?"                 OFF )
 option ( MOAB_USE_MPI        "Should MOAB be compiled with MPI support?"       OFF )
-option ( MOAB_USE_HDF        "Include HDF I/O in the build?"                   OFF )
-option ( MOAB_USE_NETCDF     "Include NetCDF support (ExodusII) in the build?" OFF )
+option ( MOAB_USE_HDF        "Include HDF I/O in the build?"                   ON )
+option ( MOAB_USE_NETCDF     "Include NetCDF support (ExodusII) in the build?" ON )
 option ( MOAB_ENABLE_TESTING "Enable Testing"                                  ON  )
 option ( MOAB_FORCE_64_BIT_HANDLES "Force MBEntityHandle to be 64 bits (uint64_t)" OFF )
 option ( MOAB_FORCE_32_BIT_HANDLES "Force MBEntityHandle to be 32 bits (uint32_t)" OFF )

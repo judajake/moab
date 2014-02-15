@@ -5,7 +5,7 @@ set(SIZEOF_VOID_P ${CMAKE_SIZEOF_VOID_P})
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/iBase_f.h.in "${CMAKE_CURRENT_BINARY_DIR}/iBase_f.h" @ONLY)
 
 set( BASE_INCLUDE_HEADERS iBase.h ${CMAKE_CURRENT_BINARY_DIR}/iBase_f.h)
-option ( ENABLE_IMESH        "Should build IMESH?"       OFF )
+option ( ENABLE_IMESH        "Should build IMESH?"       ON )
 option ( ENABLE_IGEOM        "Should build IGEOM?"       OFF )
 
 if(ENABLE_IMESH )
