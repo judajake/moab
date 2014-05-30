@@ -314,18 +314,18 @@ ErrorCode ReadCGM::load_file(const char *cgm_file_name,
 
     // create entity sets for all ref groups
   std::vector<Tag> extra_name_tags;
-  DLIList<CubitString*> name_list;
+  DLIList<CubitString> name_list;
   entlist.clean_out();
   GeometryQueryTool::instance()->ref_entity_list( "group", entlist );
   entlist.reset();
   for (int i = entlist.size(); i--; ) {
     RefEntity* grp = entlist.get_and_step();
     name_list.clean_out();
-    RefEntityName::instance()->get_refentity_name( grp, name_list, true );
+    RefEntityName::instance()->get_refentity_name( grp, name_list /*, true*/ );
     if (name_list.size() == 0)
       continue;
     name_list.reset();
-    CubitString name1 = *name_list.get();
+    CubitString name1 = name_list.get();
     
     EntityHandle h;
     rval = mdbImpl->create_meshset( MESHSET_SET, h );
@@ -361,7 +361,7 @@ ErrorCode ReadCGM::load_file(const char *cgm_file_name,
       }
         
       for (int j = 0; j < name_list.size(); ++j) {
-        name1 = *name_list.get_and_step();
+        name1 = name_list.get_and_step();
         memset( namebuf, '\0', NAME_TAG_SIZE );
         strncpy( namebuf, name1.c_str(), NAME_TAG_SIZE - 1 );
         if (name1.length() >= (unsigned)NAME_TAG_SIZE)
